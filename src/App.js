@@ -11,7 +11,7 @@ function App() {
   const update = (e) => {
 
     var isClass = false;
-    for (var index = 0; index < 9; index++) {
+    for (var index = 0; index < 10; index++) {
       var checkboxId = "selected" + index;
       const element = document.getElementById(checkboxId);
       if (element.checked) {
