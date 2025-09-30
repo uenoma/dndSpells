@@ -1,14 +1,21 @@
 import './App.css';
 import SpellImtes from './SpellItems.js';
+import SpellItem from './SpellItem.js';
 import dnd5eSpells from './json/dnd_spells_output.json';
 import { useCallback, useEffect, useState } from 'react';
 
 function App() {
 
+  const params = new URLSearchParams(window.location.search);
+  const paramName = params.get('name');
+
   const [content, setContent] = useState("");
   const [spellFile, setSpellFile] = useState(null);
 
   const update = (e) => {
+    if (paramName) {
+      return;
+    }
 
     var isClass = false;
     for (var index = 0; index < 10; index++) {
@@ -94,6 +101,16 @@ function App() {
     update();
   }, [spellFile]);
 
+  if (paramName) {
+    let content = <></>;
+    const spells = dnd5eSpells.spells;
+    spells.forEach((spell) => {
+      if ((spell.nameEN === paramName) || (spell.nameJP === paramName)) {
+        content = <SpellItem spellInfo={spell} type='All' key={0} />;
+      }
+    });
+    return content
+  }
 
   return (
     <div>
