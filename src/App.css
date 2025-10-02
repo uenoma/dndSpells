@@ -47,3 +47,7 @@
   font-size: 0.6rem;
 }
 
+.SpellItemContainer {
+  display: flex;
+  justify-content: center;
+}
