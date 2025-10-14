@@ -102,13 +102,17 @@ function App() {
   }, [spellFile]);
 
   if (paramName) {
-    let content = <div></div>;
+    let content = null;
     const spells = dnd5eSpells.spells;
     spells.forEach((spell) => {
       if ((spell.nameEN === paramName) || (spell.nameJP === paramName)) {
         content = <div className='SpellItemContainer'><SpellItem spellInfo={spell} type='All' key={0} /></div>;
       }
     });
+
+    if (!content) {
+      content = <div>{paramName} という呪文が見つかりません。</div>
+    }
     return content
   }
 
