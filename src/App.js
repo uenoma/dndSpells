@@ -7,15 +7,11 @@ import { useCallback, useEffect, useState } from 'react';
 function App() {
 
   const params = new URLSearchParams(window.location.search);
-  const paramName = params.get('name');
 
   const [content, setContent] = useState("");
   const [spellFile, setSpellFile] = useState(null);
 
   const update = (e) => {
-    if (paramName) {
-      return;
-    }
 
     var isClass = false;
     for (var index = 0; index < 10; index++) {
@@ -44,7 +40,7 @@ function App() {
   }
 
   const classTypes = () => {
-    const types = ["All", "Wizard", "Warlock", "Cleric", "Sorcerer", "Druid", "Bard", "Paladin", "Ranger", "Artificer"];
+    const types = ["All", "Wizard", "Warlock", "Cleric", "Sorcerer", "Druid", "Bard", "Paladin", "Ranger"];
 
     var selectedTypes = [];
     types.forEach((type, index) => {
@@ -100,21 +96,6 @@ function App() {
   useEffect(() => {
     update();
   }, [spellFile]);
-
-  if (paramName) {
-    let content = null;
-    const spells = dnd5eSpells.spells;
-    spells.forEach((spell) => {
-      if ((spell.nameEN === paramName) || (spell.nameJP === paramName)) {
-        content = <div className='SpellItemContainer'><SpellItem spellInfo={spell} type='All' key={0} /></div>;
-      }
-    });
-
-    if (!content) {
-      content = <div>{paramName} という呪文が見つかりません。</div>
-    }
-    return content
-  }
 
   return (
     <div>

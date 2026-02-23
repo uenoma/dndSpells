@@ -13,7 +13,7 @@ function SpellItem(props) {
     <div className={css}>
       <div className="SpellCardItemName">
         <div className="SpellCardItemNameJP">
-          {spellInfo.nameJP}
+          {spellInfo.nameJP_5e}
         </div>
         <div className="SpellCardItemNameEN">
           {spellInfo.nameEN}
@@ -71,7 +71,7 @@ function SpellItem(props) {
           {props.type}{" [" + props.spellInfo.source + "]"} 
         </div>
         <div className='SpellCardItemFooterItemRight'>
-          D&D
+          5.1
         </div>
       </div>
     </div>
