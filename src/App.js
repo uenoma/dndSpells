@@ -14,7 +14,7 @@ function App() {
   const update = (e) => {
 
     var isClass = false;
-    for (var index = 0; index < 10; index++) {
+    for (var index = 0; index < 9; index++) {
       var checkboxId = "selected" + index;
       const element = document.getElementById(checkboxId);
       if (element.checked) {
@@ -116,7 +116,6 @@ function App() {
         <div className='AppSelectButtonItem'><label><input type="checkbox" id="selected6" onChange={(e) => update(e)} />バード</label></div>
         <div className='AppSelectButtonItem'><label><input type="checkbox" id="selected7" onChange={(e) => update(e)} />パラディン</label></div>
         <div className='AppSelectButtonItem'><label><input type="checkbox" id="selected8" onChange={(e) => update(e)} />レンジャー</label></div>
-        <div className='AppSelectButtonItem'><label><input type="checkbox" id="selected9" onChange={(e) => update(e)} />アーティフィサー</label></div>
       </div>
 
       <div className='AppSelectButtons'>
