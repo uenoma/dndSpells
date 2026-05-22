@@ -140,6 +140,7 @@
   white-space: pre-wrap;
   overflow: auto;
   flex-grow: 1;
+  font-size: 0.9rem;
 }
 
 .SpellCardItemFooter {
@@ -169,4 +170,3 @@
   padding: 10px;
   font-size: 0.5rem;
 }
-
