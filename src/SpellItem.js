@@ -9,6 +9,27 @@ function SpellItem(props) {
 
   const css = "SpellCardItem " + props.type;
 
+  const description = () => {
+    const lines = spellInfo.description.split('\n');
+    const result = [];
+    lines.forEach((line, index) => {
+      if (index > 0) {
+        result.push('\n');
+      }
+      const match = line.match(/(高レベル版)[：:]/);
+      if (match) {
+        const before = line.substring(0, match.index);
+        const after = line.substring(match.index + match[0].length);
+        result.push(before);
+        result.push(<strong key={index}>{match[1]}</strong>);
+        result.push(':' + after);
+      } else {
+        result.push(line);
+      }
+    });
+    return result;
+  }
+
   return (
     <div className={css}>
       <div className="SpellCardItemName">
@@ -64,7 +85,7 @@ function SpellItem(props) {
       </div>
 
       <div className="SpellCardItemDesctiption">
-        {spellInfo.description}
+        {description()}
       </div>
       <div className="SpellCardItemFooter">
         <div className='SpellCardItemFooterItemLeft'>
